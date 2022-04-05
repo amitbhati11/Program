@@ -9,21 +9,23 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 
 public class WebDriverManagerclass {
-	static String browser;
+public	static String browser;
 	static WebDriverManager drivermanager;
 	static WebDriver driver;
-	public static void browsersetup() {
+	/*public static void browsersetup() {
 		browser ="chrome";
 
 
-	}
+	}*/
+	
+	
 	public static void browserconfiguration() {
 		if (browser.contains("chrome")) {
 
 			drivermanager.chromedriver().setup();
 			driver=new ChromeDriver();
 		}
-		if(browser =="Firefox") {
+		if(browser.contains("Firefox")) {
 			drivermanager.firefoxdriver().setup();
 			driver=new FirefoxDriver();
 		}
@@ -35,8 +37,10 @@ public class WebDriverManagerclass {
 	}
 
 	public static void main(String[] args) {
+		
+		Propertiesfileclass.readpropertiesfiledata();
 
-		browsersetup();
+	//	browsersetup();
 		browserconfiguration();
 		executetest();
 	}
